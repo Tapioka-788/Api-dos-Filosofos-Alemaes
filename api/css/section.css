@@ -1,143 +1,137 @@
+/* Seção principal */
 section {
     width: 100vw;
     height: 80vh;
-
     display: flex;
     flex-direction: column;
-
     justify-content: space-evenly;
     align-items: center;
-
-    background-color: RGB(16, 37, 66);
+    background-color: rgb(16, 37, 66);
 }
 
+/* Ordem */
 #ordem {
     position: absolute;
     top: 15vh;
-
     height: 10vh;
-
     display: flex;
     flex-direction: column;
-
     justify-content: space-evenly;
-
     z-index: 1;
 }
 
+/* Input de pesquisa */
 #termo-pesquisa {
     width: 25vw;
     height: 3vh;
-
     padding-left: 1vw;
-
     border-radius: 2vw;
     border: none;
-
-    background-color: RGB(247, 244, 243);
+    background-color: rgb(247, 244, 243);
     z-index: 2;
+    transition: transform 0.2s ease-in-out;
 }
 
-#termo-pesquisa:hover {
-    transform: scale(1.01);
-    background-color: RGB(247, 244, 243);
+#termo-pesquisa:hover,
+#termo-pesquisa:focus {
+    transform: scale(1.02);
+    background-color: rgb(247, 244, 243);
+    outline: none;
 }
 
+/* Contêiner dos botões */
 #funcoes {
     width: 30vw;
     height: 3vh;
-
     margin-left: -2vw;
-
     display: flex;
     justify-content: space-evenly;
 }
 
+/* Botões */
 .botao {
     width: 10vw;
     height: 3vh;
-
     border-radius: 2vw;
     border: none;
-
-    background-color: RGB(247, 244, 243);
+    background-color: rgb(247, 244, 243);
+    transition: all 0.2s ease-in-out;
 }
 
 .botao:hover {
     cursor: pointer;
     transform: scale(1.1);
-    background-color: RGB(248, 112, 96);
+    background-color: rgb(248, 112, 96);
 }
 
-#botao-pesquisa {}
-
+#botao-pesquisa,
 #limpa-pesquisa {}
 
-/* resposta */
-
+/* Resposta */
 #resultados-pesquisa {
     width: 50vw;
     height: 40vh;
-
     position: absolute;
     left: -100vw;
-
     border-radius: 2vw;
     padding: 2vh;
-
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
-    scrollbar-width: thin;
-    scrollbar-color: transparent transparent;
+}
+
+/* Compatibilidade com scrollbar para todos os navegadores */
+#resultados-pesquisa::-webkit-scrollbar {
+    width: 8px;
+}
+
+#resultados-pesquisa::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#resultados-pesquisa::-webkit-scrollbar-thumb {
+    background: rgb(200, 200, 200);
+    border-radius: 4px;
 }
 
 #resultados-pesquisa::-webkit-scrollbar-button {
     display: none;
-    width: 0;
-    height: 0;
-    visibility: hidden;
 }
 
+#resultados-pesquisa {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+}
+
+/* Itens da resposta */
 .item-resultado {
     width: 47.5vw;
     min-height: 5vh;
     height: auto;
     margin: 1vh 1vw;
     padding: 1vh;
-
-    background-color: RGB(247, 244, 243);
+    background-color: rgb(247, 244, 243);
     border-radius: 1vw;
-
     overflow: hidden;
 }
 
-/* lista */
-
+/* Sugestão de pesquisa */
 #sugestao {
     position: absolute;
     top: 30vh;
     right: 7.5vw;
-
     width: 10vw;
     padding: 3vh;
     border-radius: 2vw;
-
     background-color: white;
-
-
     z-index: 10;
 }
 
-
-/* Contador */
-
+/* Contador de caracteres */
 #contador-nome {
     font-size: 1.2vh;
     pointer-events: none;
-
     margin-top: -3.5vh;
     margin-left: 24.5vw;
-
     z-index: 99;
 }
 
@@ -149,27 +143,22 @@ section {
     color: rgb(128, 128, 128);
 }
 
-@media screen and (max-width: 480px),
-(max-height: 882px) {
+/* Responsividade */
+@media screen and (max-width: 480px), (max-height: 882px) {
     section {
         width: 100vw;
         height: 80vh;
-
         display: flex;
         justify-content: center;
     }
-
 
     #termo-pesquisa {
         width: 60vw;
     }
 
-
     #funcoes {
         width: 60vw;
-
         margin-left: 1vw;
-
         display: flex;
         justify-content: space-evenly;
     }
@@ -178,29 +167,19 @@ section {
         width: 20vw;
     }
 
-    /* resposta */
-
+    /* Ajuste da resposta para telas menores */
     #resultados-pesquisa {
         width: 70vw;
         height: 40vh;
-
-        position: absolute;
         left: -100vw;
-
         border-radius: 2vw;
         padding: 2vh;
-
-        overflow-y: scroll;
+        overflow-y: auto;
         overflow-x: hidden;
-        scrollbar-width: thin;
-        scrollbar-color: transparent transparent;
     }
 
-    #resultados-pesquisa::-webkit-scrollbar-button {
+    #resultados-pesquisa::-webkit-scrollbar {
         display: none;
-        width: 0;
-        height: 0;
-        visibility: hidden;
     }
 
     .item-resultado {
@@ -209,21 +188,14 @@ section {
         height: auto;
         margin: 1vh 1vw;
         padding: 1vh;
-
-        background-color: RGB(247, 244, 243);
+        background-color: rgb(247, 244, 243);
         border-radius: 1vw;
-
         overflow: hidden;
     }
-
-    /* lista */
 
     #sugestao {
         display: none;
     }
-
-
-    /* Contador */
 
     #contador-nome {
         margin-top: -3.5vh;

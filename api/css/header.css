@@ -1,23 +1,17 @@
-header{
+header {
     width: 100vw;
     height: 10vh;
-
     display: flex;
     flex-direction: column;
-
     justify-content: center;
     align-items: center;
-
-    background-color: RGB(248, 112, 96);
+    background-color: rgb(248, 112, 96);
+    box-sizing: border-box;
 }
 
 @media screen and (max-width: 480px), (max-height: 882px) {
     header {
-        height: 10vh;
         width: 100vw;
-    }
-
-    #nomezinho{
-        font-size: 2vh;
+        height: 10vh;
     }
 }
