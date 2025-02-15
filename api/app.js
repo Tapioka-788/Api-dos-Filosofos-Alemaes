@@ -14,10 +14,9 @@ export function pesquisar() {
     let encontrou = false;
 
     for (let dado of dados) {
-        let nome = dado.nome.toLowerCase();
-        let descricao = dado.descricao.toLowerCase();
+        let nome = dado.nome.toLowerCase(); 
 
-        if (nome.includes(termoPesquisa) || descricao.includes(termoPesquisa)) {
+        if (nome.includes(termoPesquisa)) {
             encontrou = true;
 
             let div = document.createElement("div");
@@ -35,34 +34,55 @@ export function pesquisar() {
 
             resposta.appendChild(div);
 
-            resposta.style.left = "25vw"
+            if (window.matchMedia("(max-width: 480px), (max-height: 882px)").matches) {
+                resposta.style.left = "10vw";  // Para telas menores
+            } else {
+                resposta.style.left = "25vw"; // Para telas maiores
+            }
         }
     }
 
     if (!encontrou) {
-        alert("Nenhum filosofo foi encontrado");
+        alert("Nenhum filósofo foi encontrado");
     }
 }
 
-const limiteNome = 25;
-const nomeInput = document.getElementById('termo-pesquisa');
-const contadorNome = document.getElementById('contador-nome');
+const limiteNome = 30;
+const nomeInput = document.getElementById("termo-pesquisa");
+const contadorNome = document.getElementById("contador-nome");
 
 function atualizarContadorN(input, contador, limite) {
     const comprimentoN = input.value.length;
     contador.textContent = `${comprimentoN}/${limite}`;
 
     if (comprimentoN >= limite) {
-        contador.className ='contadorLimiteN';
+        contador.className = "contadorLimiteN";
     } else {
-        contador.className = 'contadorNormalN';
+        contador.className = "contadorNormalN";
     }
 }
 
-nomeInput.addEventListener('input', () => {
+nomeInput.addEventListener("input", () => {
     atualizarContadorN(nomeInput, contadorNome, limiteNome);
 });
 
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("botao-pesquisa").addEventListener("click", pesquisar);
-});
+    document.getElementById("termo-pesquisa").addEventListener("keypress", (event) => {
+        if (event.key === "Enter") {
+            pesquisar();
+        }
+    });
+    document.getElementById("limpa-pesquisa").addEventListener("click", limpar);
+})
+
+function limpar() {
+    let resposta = document.getElementById("resultados-pesquisa");
+    let termo = document.getElementById("termo-pesquisa").value = "";
+
+    resposta.innerHTML = ""; 
+    resposta.style.left = '-100vw';
+
+    contadorNome.textContent = `0/${limiteNome}`;
+    contadorNome.className = "contadorNormalN";
+}

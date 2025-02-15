@@ -8,5 +8,16 @@ header{
     justify-content: center;
     align-items: center;
 
-    background-color: blueviolet;
+    background-color: RGB(248, 112, 96);
+}
+
+@media screen and (max-width: 480px), (max-height: 882px) {
+    header {
+        height: 10vh;
+        width: 100vw;
+    }
+
+    #nomezinho{
+        font-size: 2vh;
+    }
 }

@@ -1,12 +1,37 @@
-footer{
+footer {
     width: 100vw;
     height: 10vh;
 
     display: flex;
     flex-direction: column;
 
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
 
-    background-color: blueviolet;
+    background-color: RGB(248, 112, 96);
+}
+
+#email{
+    color: RGB(16, 37, 66);
+}
+
+@media screen and (max-width: 480px),
+(max-height: 882px) {
+    footer {
+        height: 10vh;
+        width: 100vw;
+
+        display: flex;
+        justify-content: center;
+    }
+
+    .recursos {
+        font-size: 1.5vh;
+        margin: 1vh 0vw;
+    }
+
+    #rec1 {
+        display: none;
+    }
+
 }

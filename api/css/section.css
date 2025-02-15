@@ -8,10 +8,10 @@ section {
     justify-content: space-evenly;
     align-items: center;
 
-    background-color: orange;
+    background-color: RGB(16, 37, 66);
 }
 
-#ordem{
+#ordem {
     position: absolute;
     top: 15vh;
 
@@ -25,28 +25,55 @@ section {
     z-index: 1;
 }
 
-#botao-pesquisa{
-    width: 10vw;
-    height: 3vh;
-
-    margin-left: 7.5vw;
-
-    border-radius: 2vw;
-
-    background-color: rgb(255, 255, 255);
-}
-
-#termo-pesquisa{
+#termo-pesquisa {
     width: 25vw;
     height: 3vh;
 
     padding-left: 1vw;
 
     border-radius: 2vw;
+    border: none;
 
-    background-color: rgb(255, 255, 255);
+    background-color: RGB(247, 244, 243);
     z-index: 2;
 }
+
+#termo-pesquisa:hover {
+    transform: scale(1.01);
+    background-color: RGB(247, 244, 243);
+}
+
+#funcoes {
+    width: 30vw;
+    height: 3vh;
+
+    margin-left: -2vw;
+
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.botao {
+    width: 10vw;
+    height: 3vh;
+
+    border-radius: 2vw;
+    border: none;
+
+    background-color: RGB(247, 244, 243);
+}
+
+.botao:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    background-color: RGB(248, 112, 96);
+}
+
+#botao-pesquisa {}
+
+#limpa-pesquisa {}
+
+/* resposta */
 
 #resultados-pesquisa {
     width: 50vw;
@@ -64,6 +91,13 @@ section {
     scrollbar-color: transparent transparent;
 }
 
+#resultados-pesquisa::-webkit-scrollbar-button {
+    display: none;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
 .item-resultado {
     width: 47.5vw;
     min-height: 5vh;
@@ -71,16 +105,27 @@ section {
     margin: 1vh 1vw;
     padding: 1vh;
 
-    background-color: rgb(240, 240, 240);
+    background-color: RGB(247, 244, 243);
     border-radius: 1vw;
+
+    overflow: hidden;
 }
 
 /* lista */
 
-#sugestao{
+#sugestao {
     position: absolute;
-    top: 40vh;
+    top: 30vh;
     right: 7.5vw;
+
+    width: 10vw;
+    padding: 3vh;
+    border-radius: 2vw;
+
+    background-color: white;
+
+
+    z-index: 10;
 }
 
 
@@ -102,4 +147,86 @@ section {
 
 .contadorNormalN {
     color: rgb(128, 128, 128);
+}
+
+@media screen and (max-width: 480px),
+(max-height: 882px) {
+    section {
+        width: 100vw;
+        height: 80vh;
+
+        display: flex;
+        justify-content: center;
+    }
+
+
+    #termo-pesquisa {
+        width: 60vw;
+    }
+
+
+    #funcoes {
+        width: 60vw;
+
+        margin-left: 1vw;
+
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .botao {
+        width: 20vw;
+    }
+
+    /* resposta */
+
+    #resultados-pesquisa {
+        width: 70vw;
+        height: 40vh;
+
+        position: absolute;
+        left: -100vw;
+
+        border-radius: 2vw;
+        padding: 2vh;
+
+        overflow-y: scroll;
+        overflow-x: hidden;
+        scrollbar-width: thin;
+        scrollbar-color: transparent transparent;
+    }
+
+    #resultados-pesquisa::-webkit-scrollbar-button {
+        display: none;
+        width: 0;
+        height: 0;
+        visibility: hidden;
+    }
+
+    .item-resultado {
+        width: 68vw;
+        min-height: 5vh;
+        height: auto;
+        margin: 1vh 1vw;
+        padding: 1vh;
+
+        background-color: RGB(247, 244, 243);
+        border-radius: 1vw;
+
+        overflow: hidden;
+    }
+
+    /* lista */
+
+    #sugestao {
+        display: none;
+    }
+
+
+    /* Contador */
+
+    #contador-nome {
+        margin-top: -3.5vh;
+        margin-left: 55vw;
+    }
 }
