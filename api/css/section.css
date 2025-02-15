@@ -1,0 +1,105 @@
+section {
+    width: 100vw;
+    height: 80vh;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-evenly;
+    align-items: center;
+
+    background-color: orange;
+}
+
+#ordem{
+    position: absolute;
+    top: 15vh;
+
+    height: 10vh;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-evenly;
+
+    z-index: 1;
+}
+
+#botao-pesquisa{
+    width: 10vw;
+    height: 3vh;
+
+    margin-left: 7.5vw;
+
+    border-radius: 2vw;
+
+    background-color: rgb(255, 255, 255);
+}
+
+#termo-pesquisa{
+    width: 25vw;
+    height: 3vh;
+
+    padding-left: 1vw;
+
+    border-radius: 2vw;
+
+    background-color: rgb(255, 255, 255);
+    z-index: 2;
+}
+
+#resultados-pesquisa {
+    width: 50vw;
+    height: 40vh;
+
+    position: absolute;
+    left: -100vw;
+
+    border-radius: 2vw;
+    padding: 2vh;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+}
+
+.item-resultado {
+    width: 47.5vw;
+    min-height: 5vh;
+    height: auto;
+    margin: 1vh 1vw;
+    padding: 1vh;
+
+    background-color: rgb(240, 240, 240);
+    border-radius: 1vw;
+}
+
+/* lista */
+
+#sugestao{
+    position: absolute;
+    top: 40vh;
+    right: 7.5vw;
+}
+
+
+/* Contador */
+
+#contador-nome {
+    font-size: 1.2vh;
+    pointer-events: none;
+
+    margin-top: -3.5vh;
+    margin-left: 24.5vw;
+
+    z-index: 99;
+}
+
+.contadorLimiteN {
+    color: rgb(255, 0, 0);
+}
+
+.contadorNormalN {
+    color: rgb(128, 128, 128);
+}
